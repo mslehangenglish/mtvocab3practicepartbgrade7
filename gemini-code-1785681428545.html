@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài Kiểm Tra Tiếng Anh Tương Tác - Ms Lê Hằng English</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-grad-1: #8854C0;
+            --bg-grad-2: #FDCB6E;
+            --bg-grad-3: #00C9A7;
+            --bg-grad-4: #E84393;
+            --correct-color: #00D26A;
+            --correct-shadow: #00A352;
+            --wrong-color: #FF4757;
+            --wrong-shadow: #D63031;
+            --btn-default: #F0F3F8;
+            --btn-shadow: #CBD0D9;
+            --text-dark: #2D3436;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Nunito', 'Quicksand', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(-45deg, var(--bg-grad-1), var(--bg-grad-2), var(--bg-grad-3), var(--bg-grad-4));
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            position: relative;
+            padding: 20px 10px 60px 10px;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* SVG Background Patterns */
+        .bg-patterns {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.25;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cpath fill='%23FFFFFF' d='M30 15 l3 7 h7 l-5 5 l2 7 l-7-4 l-7 4 l2-7 l-5-5 h7 z M80 70 l4 9 h9 l-7 6 l3 9 l-9-5 l-9 5 l3-9 l-7-6 h9 z M15 85 a 8 8 0 1 0 16 0 a 8 8 0 1 0 -16 0 M90 20 a 10 10 0 1 0 20 0 a 10 10 0 1 0 -20 0'%3E%3C/path%3E%3C/svg%3E");
+            animation: floatingPattern 25s linear infinite;
+        }
+
+        @keyframes floatingPattern {
+            from { background-position: 0 0; }
+            to { background-position: 500px 1000px; }
+        }
+
+        .main-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header Styling */
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .teacher-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.92);
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: #8854C0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 12px;
+        }
+
+        /* Banner Notification */
+        .notice-banner {
+            background: #FFF3BF;
+            border: 3px solid #FCC419;
+            border-radius: 20px;
+            padding: 16px 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            margin-bottom: 25px;
+            animation: pulseBanner 2s infinite alternate;
+        }
+
+        @keyframes pulseBanner {
+            0% { transform: scale(0.99); }
+            100% { transform: scale(1.01); }
+        }
+
+        .notice-title {
+            color: #E67700;
+            font-size: 1.1rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .notice-body {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #495057;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .notice-highlight {
+            display: block;
+            margin-top: 6px;
+            color: #D9480F;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        /* Question Cards */
+        .question-card {
+            background: rgba(255, 255, 255, 0.96);
+            border-radius: 24px;
+            padding: 24px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+            border: 4px solid #FFFFFF;
+            transition: transform 0.2s ease;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: #E84393;
+            color: white;
+            font-weight: 800;
+            padding: 2px 10px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            margin-bottom: 8px;
+        }
+
+        .question-number {
+            display: inline-block;
+            background: #8854C0;
+            color: white;
+            font-weight: 900;
+            padding: 4px 14px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            margin-left: 6px;
+        }
+
+        .question-text {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #2D3436;
+            margin-bottom: 18px;
+            line-height: 1.6;
+        }
+
+        /* Formatting underlined target words in question prompt */
+        .question-text u {
+            text-decoration: none;
+            border-bottom: 3px solid #E84393;
+            color: #D63031;
+            font-weight: 900;
+            padding-bottom: 2px;
+        }
+
+        /* Options Grid */
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        @media (min-width: 600px) {
+            .options-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .option-btn {
+            background: var(--btn-default);
+            border: 2px solid #DCDFE6;
+            border-radius: 18px;
+            padding: 14px 18px;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #2D3436;
+            cursor: pointer;
+            box-shadow: 0 6px 0 var(--btn-shadow);
+            transition: all 0.15s ease;
+            text-align: left;
+            position: relative;
+            outline: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .option-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 0 var(--btn-shadow);
+            background: #FFFFFF;
+        }
+
+        .option-btn:active:not(:disabled) {
+            transform: translateY(4px);
+            box-shadow: 0 2px 0 var(--btn-shadow);
+        }
+
+        .option-btn.correct {
+            background: var(--correct-color) !important;
+            color: white !important;
+            border-color: #00B159 !important;
+            box-shadow: 0 6px 0 var(--correct-shadow) !important;
+        }
+
+        .option-btn.wrong {
+            background: var(--wrong-color) !important;
+            color: white !important;
+            border-color: #E03B4B !important;
+            box-shadow: 0 6px 0 var(--wrong-shadow) !important;
+            animation: shake 0.4s ease;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-8px); }
+            40%, 80% { transform: translateX(8px); }
+        }
+
+        /* Explanation Box */
+        .explanation-box {
+            margin-top: 20px;
+            background: #F8F9FA;
+            border-left: 6px solid #8854C0;
+            border-radius: 12px;
+            padding: 16px;
+            display: none;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .exp-title {
+            font-weight: 900;
+            color: #8854C0;
+            margin-bottom: 8px;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .exp-step {
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #2D3436;
+        }
+
+        .exp-step-title {
+            font-weight: 800;
+            color: #0984E3;
+        }
+
+        /* Bottom Submit Area */
+        .submit-section {
+            text-align: center;
+            margin: 40px 0 20px 0;
+        }
+
+        .submit-btn {
+            background: #00C9A7;
+            color: white;
+            font-size: 1.4rem;
+            font-weight: 900;
+            padding: 16px 48px;
+            border: none;
+            border-radius: 30px;
+            box-shadow: 0 8px 0 #00967D;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 11px 0 #00967D;
+        }
+
+        .submit-btn:active {
+            transform: translateY(4px);
+            box-shadow: 0 3px 0 #00967D;
+        }
+
+        /* Result Modal Popup */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 28px;
+            padding: 32px 24px;
+            max-width: 480px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            animation: popUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+
+        @keyframes popUp {
+            from { transform: scale(0.6); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .score-badge {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background: #FDCB6E;
+            color: #D63031;
+            font-size: 2.2rem;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px auto;
+            box-shadow: 0 8px 0 #E1B12C;
+        }
+
+        .modal-feedback {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #2D3436;
+            margin: 15px 0 25px 0;
+            line-height: 1.5;
+        }
+
+        .close-modal-btn {
+            background: #8854C0;
+            color: white;
+            font-weight: 800;
+            font-size: 1.1rem;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 0 5px 0 #6C38A1;
+        }
+
+        /* Confetti Canvas */
+        #confetti-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 99;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-patterns"></div>
+    <canvas id="confetti-canvas"></canvas>
+
+    <div class="main-wrapper">
+        <header>
+            <div class="teacher-tag">Giáo viên tạo: Ms Lê Hằng English</div>
+        </header>
+
+        <div class="notice-banner">
+            <div class="notice-title">⚠️ LỜI NHẮC CỰC KỲ QUAN TRỌNG ⚠️</div>
+            <div class="notice-body">
+                Chỉ có đọc kỹ giải thích ngay sau mỗi câu, sau đó ghi lại từ vựng/cấu trúc mới vào vở để học thì mới thực sự giỏi lên.
+                Làm cho xong mà không đọc giải thích hay đọc qua loa không ghi chép thì chỉ tốn thời gian vô ích!
+                <span class="notice-highlight">* Kéo tới đâu, làm tới đó! *</span>
+            </div>
+        </div>
+
+        <!-- Dynamic Questions Container -->
+        <div id="quiz-container"></div>
+
+        <div class="submit-section">
+            <button class="submit-btn" onclick="submitQuiz()">NỘP BÀI THI 🚀</button>
+        </div>
+    </div>
+
+    <!-- Result Modal -->
+    <div class="modal-overlay" id="result-modal">
+        <div class="modal-content">
+            <div class="score-badge" id="modal-score">0/38</div>
+            <h2 style="color: #8854C0; font-weight: 900;" id="modal-title">KẾT QUẢ BÀI THI</h2>
+            <div class="modal-feedback" id="modal-msg"></div>
+            <button class="close-modal-btn" onclick="closeModal()">Đóng & Xem Lại Bài</button>
+        </div>
+    </div>
+
+    <script>
+        // --- COMPLETE QUIZ DATA WITH CORRECTED UNDERLINES AND HIDDEN ANSWERS IN OPTIONS ---
+        const quizData = [
+            // IMAGE 1 - SECTION VII: QUANTITY NOUNS
+            {
+                section: "Ảnh 1 - Phần VII",
+                question: "1. She bought a _____ of bread so we can make sandwiches.",
+                options: ["A. loaf", "B. bowl", "C. bar", "D. packet"],
+                correct: 0,
+                explanation: {
+                    step1: "Dịch câu: Cô ấy đã mua một ổ bánh mì để chúng ta làm bánh mì kẹp.",
+                    step2: "Dịch nghĩa 4 danh từ đếm đơn vị:<br>• A. loaf: Ổ (bánh mì)<br>• B. bowl: Bát / Tô<br>• C. bar: Thanh (thỏi)<br>• D. packet: Gói / Túi nhỏ",
+                    step3: "Tại sao chọn A? Danh từ chỉ đơn vị kết hợp chuẩn xác nhất với bánh mì (bread) là 'loaf' -> 'a loaf of bread' (một ổ bánh mì).",
+                    step4: "Tại sao B, C, D sai? Bát (bowl) dùng cho canh/súp; Thanh (bar) dùng cho sô-cô-la; Gói (packet) dùng cho bánh quy."
+                }
+            },
+            {
+                section: "Ảnh 1 - Phần VII",
+                question: "2. We've already eaten a _____ of biscuits!",
+                options: ["A. tube", "B. packet", "C. slice", "D. kilo"],
+                correct: 1,
+                explanation: {
+                    step1: "Dịch câu: Chúng tớ đã ăn hết một gói bánh quy rồi!",
+                    step2: "Dịch nghĩa 4 danh từ đơn vị:<br>• A. tube: Tuýp / Ống<br>• B. packet: Gói / Hộp nhỏ<br>• C. slice: Lát mỏng<br>• D. kilo: Cân / Kí-lô-gam",
+                    step3: "Tại sao chọn B? Bánh quy (biscuits) đóng gói dạng túi/hộp nhỏ dùng danh từ 'packet' -> 'a packet of biscuits'.",
+                    step4: "Tại sao A, C, D sai? Tuýp (tube) dùng cho kem đánh răng; Lát (slice) dùng cho bánh mì/thịt lợn muối; Kilo chỉ khối lượng."
+                }
+            },
+            {
+                section: "Ảnh 1 - Phần VII",
+                question: "3. Would you like a _____ of lemonade?",
+                options: ["A. bowl", "B. piece", "C. glass", "D. loaf"],
+                correct: 2,
+                explanation: {
+                    step1: "Dịch câu: Bạn có muốn dùng một cốc nước chanh không?",
+                    step2: "Dịch nghĩa các vật chứa đồ uống:<br>• A. bowl: Bát tô<br>• B. piece: Mảnh / Miếng<br>• C. glass: Cốc / Ly thủy tinh<br>• D. loaf: Ổ",
+                    step3: "Tại sao chọn C? Đồ uống dạng lỏng như nước chanh (lemonade) đựng trong cốc thủy tinh dùng 'a glass of lemonade'.",
+                    step4: "Tại sao A, B, D sai? Bowl đựng súp; Piece dùng cho bánh ngọt; Loaf dùng cho bánh mì."
+                }
+            },
+            {
+                section: "Ảnh 1 - Phần VII",
+                question: "4. There is a _____ of milk in the fridge.",
+                options: ["A. piece", "B. carton", "C. kilo", "D. slice"],
+                correct: 1,
+                explanation: {
+                    step1: "Dịch câu: Có một hộp sữa giấy trong tủ lạnh.",
+                    step2: "Dịch nghĩa 4 danh từ đơn vị:<br>• A. piece: Miếng<br>• B. carton: Hộp giấy / Vỏ hộp carton đựng chất lỏng<br>• C. kilo: Cân<br>• D. slice: Lát mỏng",
+                    step3: "Tại sao chọn B? Sữa tươi đóng hộp giấy được gọi là 'a carton of milk'.",
+                    step4: "Tại sao A, C, D sai? Sữa dạng lỏng không đếm theo miếng (piece) hay lát (slice)."
+                }
+            },
+            {
+                section: "Ảnh 1 - Phần VII",
+                question: "5. Could you cut me a smaller _____ of ham?",
+                options: ["A. slice", "B. spoon", "C. bunch", "D. pot"],
+                correct: 0,
+                explanation: {
+                    step1: "Dịch câu: Bạn có thể cắt cho tớ một lát thịt dăm bông nhỏ hơn không?",
+                    step2: "Dịch nghĩa 4 đơn vị cắt thái:<br>• A. slice: Lát cắt mỏng<br>• B. spoon: Thìa / Muỗng<br>• C. bunch: Nải / Bó (chuối, hoa)<br>• D. pot: Hũ / Nồi",
+                    step3: "Tại sao chọn A? Cắt thịt dăm bông (ham) thành từng lát nhỏ mỏng dùng từ 'slice' -> 'a slice of ham'.",
+                    step4: "Tại sao B, C, D sai? Thìa, bó hay nồi không dùng để miêu tả lát thịt thái."
+                }
+            },
+            {
+                section: "Ảnh 1 - Phần VII",
+                question: "6. You can have a _____ of cake after you've eaten your vegetables!",
+                options: ["A. loaf", "B. piece", "C. pot", "D. bottle"],
+                correct: 1,
+                explanation: {
+                    step1: "Dịch câu: Con có thể ăn một miếng bánh kem sau khi ăn xong phần rau!",
+                    step2: "Dịch nghĩa các từ chỉ đơn vị bánh ngọt:<br>• A. loaf: Ổ<br>• B. piece: Miếng / Mảnh<br>• C. pot: Hũ / Chậu<br>• D. bottle: Chai",
+                    step3: "Tại sao chọn B? Bánh ngọt (cake) khi cắt ra chia phần dùng 'a piece of cake' (một miếng bánh).",
+                    step4: "Tại sao A, C, D sai? Loaf dùng cho bánh mì gối; Chai và hũ không chứa từng phần bánh."
+                }
+            },
+            {
+                section: "Ảnh 1 - Phần VII",
+                question: "7. See round the grocer's for a _____ of sardines.",
+                options: ["A. bottle", "B. tin", "C. tube", "D. glass"],
+                correct: 1,
+                explanation: {
+                    step1: "Dịch câu: Hãy tìm quanh cửa hàng tạp hóa để mua một hộp cá mòi đóng hộp.",
+                    step2: "Dịch nghĩa các đồ vật đóng gói:<br>• A. bottle: Chai thủy tinh<br>• B. tin: Hộp tin / Hộp kim loại đóng lon<br>• C. tube: Tuýp<br>• D. glass: Ly",
+                    step3: "Tại sao chọn B? Cá trích/cá mòi đóng hộp kim loại được gọi là 'a tin of sardines'.",
+                    step4: "Tại sao A, C, D sai? Cá không đóng trong chai thủy tinh hay tuýp."
+                }
+            },
+            {
+                section: "Ảnh 1 - Phần VII",
+                question: "8. She ate a _____ of noodles yesterday morning.",
+                options: ["A. glass", "B. slice", "C. bowl", "D. bar"],
+                correct: 2,
+                explanation: {
+                    step1: "Dịch câu: Cô ấy đã ăn một bát mì vào sáng ngày hôm qua.",
+                    step2: "Dịch nghĩa các vật chứa đồ ăn:<br>• A. glass: Ly thủy tinh<br>• B. slice: Lát mỏng<br>• C. bowl: Bát / Tô<br>• D. bar: Thanh",
+                    step3: "Tại sao chọn C? Mì (noodles) đựng trong bát/tô ăn dùng 'a bowl of noodles'.",
+                    step4: "Tại sao A, B, D sai? Ly đựng nước; Lát dùng cho thịt/bánh mì; Thanh dùng cho sô-cô-la."
+                }
+            },
+            {
+                section: "Ảnh 1 - Phần VII",
+                question: "9. Anna always eats a _____ of chocolate on her way to school.",
+                options: ["A. slice", "B. bar", "C. loaf", "D. carton"],
+                correct: 1,
+                explanation: {
+                    step1: "Dịch câu: Anna luôn ăn một thanh sô-cô-la trên đường đến trường.",
+                    step2: "Dịch nghĩa đơn vị đồ ăn:<br>• A. slice: Lát mỏng<br>• B. bar: Thanh / Thỏi<br>• C. loaf: Ổ bánh mì<br>• D. carton: Hộp giấy",
+                    step3: "Tại sao chọn B? Sô-cô-la đúc nguyên khối dài gọi là thanh/thỏi sô-cô-la -> 'a bar of chocolate'.",
+                    step4: "Tại sao A, C, D sai? Không gọi sô-cô-la là ổ hay hộp giấy."
+                }
+            },
+            {
+                section: "Ảnh 1 - Phần VII",
+                question: "10. He got a _____ of Coke from the fridge because he was thirsty.",
+                options: ["A. can", "B. piece", "C. carton", "D. loaf"],
+                correct: 0,
+                explanation: {
+                    step1: "Dịch câu: Cậu ấy lấy một lon nước Coca từ tủ lạnh vì cậu ấy bị khát.",
+                    step2: "Dịch nghĩa đơn vị đồ uống:<br>• A. can: Lon nhôm/kim loại<br>• B. piece: Miếng<br>• C. carton: Hộp giấy<br>• D. loaf: Ổ bánh mì",
+                    step3: "Tại sao chọn A? Nước ngọt có ga như Coke đóng lon kim loại gọi là 'a can of Coke'.",
+                    step4: "Tại sao B, C, D sai? Nước có ga không đóng thành miếng hay ổ bánh mì."
+                }
+            },
+
+            // IMAGE 2 - SECTION X: HOW MUCH / HOW MANY
+            {
+                section: "Ảnh 2 - Phần X",
+                question: "1. _____ grams of sugar per day should we consume?",
+                options: ["A. How many", "B. How much", "C. How long", "D. How often"],
+                correct: 0,
+                explanation: {
+                    step1: "Dịch câu: Chúng ta nên tiêu thụ bao nhiêu gam đường mỗi ngày?",
+                    step2: "Phân tích cấu trúc từ hỏi số lượng:<br>• How many + Danh từ đếm được số nhiều (có 's/es')<br>• How much + Danh từ KHÔNG đếm được.",
+                    step3: "Tại sao chọn A? Danh từ 'grams' (gam) có đuôi 's' là danh từ đếm được số nhiều -> Dùng 'How many'.",
+                    step4: "Tại sao B, C, D sai? How much đi với danh từ không đếm được; How long hỏi độ dài thời gian."
+                }
+            },
+            {
+                section: "Ảnh 2 - Phần X",
+                question: "2. _____ bread do we need?",
+                options: ["A. How many", "B. How much", "C. How far", "D. How long"],
+                correct: 1,
+                explanation: {
+                    step1: "Dịch câu: Chúng ta cần bao nhiêu bánh mì?",
+                    step2: "Phân tích loại danh từ 'bread':<br>• 'bread' (bánh mì) là danh từ KHÔNG đếm được trong tiếng Anh.",
+                    step3: "Tại sao chọn B? Bắt buộc hỏi bằng 'How much' đối với danh từ không đếm được.",
+                    step4: "Tại sao A, C, D sai? How many chỉ đi với danh từ số nhiều đếm được."
+                }
+            },
+            {
+                section: "Ảnh 2 - Phần X",
+                question: "3. _____ coffee do you drink in a day?",
+                options: ["A. How much", "B. How many", "C. How often", "D. How long"],
+                correct: 0,
+                explanation: {
+                    step1: "Dịch câu: Bạn uống bao nhiêu cà phê trong một ngày?",
+                    step2: "Phân tích danh từ 'coffee':<br>• 'coffee' (cà phê) là chất lỏng $\rightarrow$ Danh từ KHÔNG đếm được.",
+                    step3: "Tại sao chọn A? Đi với chất lỏng/danh từ không đếm được dùng 'How much'.",
+                    step4: "Tại sao B, C, D sai? 'How many' chỉ dùng khi có danh từ đếm được số nhiều (VD: cups of coffee)."
+                }
+            },
+            {
+                section: "Ảnh 2 - Phần X",
+                question: "4. _____ steaks do you want?",
+                options: ["A. How many", "B. How much", "C. How long", "D. How old"],
+                correct: 0,
+                explanation: {
+                    step1: "Dịch câu: Bạn muốn bao nhiêu miếng bò bít tết?",
+                    step2: "Phân tích danh từ 'steaks':<br>• Từ 'steaks' có đuôi 's' $\rightarrow$ Danh từ đếm được số nhiều.",
+                    step3: "Tại sao chọn A? Danh từ đếm được số nhiều bắt buộc đi với từ hỏi 'How many'.",
+                    step4: "Tại sao B, C, D sai? How much không đi với danh từ số nhiều có 's'."
+                }
+            },
+            {
+                section: "Ảnh 2 - Phần X",
+                question: "5. _____ meat do we need for the barbecue tonight?",
+                options: ["A. How many", "B. How much", "C. How often", "D. How far"],
+                correct: 1,
+                explanation: {
+                    step1: "Dịch câu: Chúng ta cần bao nhiêu thịt cho bữa tiệc nướng tối nay?",
+                    step2: "Phân tích danh từ 'meat':<br>• 'meat' (thịt) là danh từ KHÔNG đếm được.",
+                    step3: "Tại sao chọn B? Sử dụng 'How much' để hỏi số lượng cho danh từ không đếm được.",
+                    step4: "Tại sao A, C, D sai? How many không dùng cho danh từ không đếm được."
+                }
+            },
+            {
+                section: "Ảnh 2 - Phần X",
+                question: "6. _____ bottles of orange juice have you had today?",
+                options: ["A. How many", "B. How much", "C. How long", "D. How often"],
+                correct: 0,
+                explanation: {
+                    step1: "Dịch câu: Bạn đã uống bao nhiêu chai nước cam hôm nay?",
+                    step2: "Phân tích danh từ 'bottles':<br>• Tuy 'orange juice' không đếm được nhưng từ đứng ngay sau từ hỏi là danh từ chỉ đơn vị 'bottles' (các vỏ chai) có 's' $\rightarrow$ Danh từ đếm được số nhiều.",
+                    step3: "Tại sao chọn A? 'bottles' đếm được số nhiều nên chọn 'How many'.",
+                    step4: "Tại sao B, C, D sai? How much sai vì đằng sau là danh từ đếm được 'bottles'."
+                }
+            },
+            {
+                section: "Ảnh 2 - Phần X",
+                question: "7. _____ hamburgers did he eat?",
+                options: ["A. How many", "B. How much", "C. How long", "D. How far"],
+                correct: 0,
+                explanation: {
+                    step1: "Dịch câu: Cậu ấy đã ăn bao nhiêu cái bánh hamburger?",
+                    step2: "Phân tích danh từ 'hamburgers':<br>• Danh từ 'hamburgers' đếm được số nhiều (có đuôi 's').",
+                    step3: "Tại sao chọn A? Chọn 'How many' đi kèm với danh từ đếm được số nhiều.",
+                    step4: "Tại sao B, C, D sai? How much chỉ đi với danh từ không đếm được."
+                }
+            },
+            {
+                section: "Ảnh 2 - Phần X",
+                question: "8. _____ cream would you like in your coffee?",
+                options: ["A. How many", "B. How much", "C. How long", "D. How often"],
+                correct: 1,
+                explanation: {
+                    step1: "Dịch câu: Bạn muốn thêm bao nhiêu kem tươi vào cà phê của mình?",
+                    step2: "Phân tích danh từ 'cream':<br>• 'cream' (kem/kem tươi) là danh từ KHÔNG đếm được.",
+                    step3: "Tại sao chọn B? 'How much' đi với danh từ không đếm được.",
+                    step4: "Tại sao A, C, D sai? How many không đi với 'cream'."
+                }
+            },
+            {
+                section: "Ảnh 2 - Phần X",
+                question: "9. _____ potatoes are there in the basket?",
+                options: ["A. How many", "B. How much", "C. How long", "D. How far"],
+                correct: 0,
+                explanation: {
+                    step1: "Dịch câu: Có bao nhiêu củ khoai tây trong giỏ?",
+                    step2: "Phân tích danh từ 'potatoes':<br>• 'potatoes' (các củ khoai tây) là danh từ đếm được số nhiều.",
+                    step3: "Tại sao chọn A? Dùng 'How many' cho danh từ số nhiều đếm được.",
+                    step4: "Tại sao B, C, D sai? How much không đi với danh từ có đuôi 'es'."
+                }
+            },
+            {
+                section: "Ảnh 2 - Phần X",
+                question: "10. _____ rice can I put in the soup?",
+                options: ["A. How many", "B. How much", "C. How long", "D. How often"],
+                correct: 1,
+                explanation: {
+                    step1: "Dịch câu: Tớ có thể cho bao nhiêu cơm/gạo vào món súp?",
+                    step2: "Phân tích danh từ 'rice':<br>• 'rice' (gạo/cơm) là danh từ KHÔNG đếm được.",
+                    step3: "Tại sao chọn B? Áp dụng công thức 'How much + Danh từ không đếm được'.",
+                    step4: "Tại sao A, C, D sai? How many chỉ dùng cho danh từ đếm được."
+                }
+            },
+
+            // IMAGE 2 - SECTION XI: WORD FORMATION
+            {
+                section: "Ảnh 2 - Phần XI",
+                question: "1. Avatar is probably the _____ film I've ever seen! (bad)",
+                options: ["A. worse", "B. worst", "C. badder", "D. baddest"],
+                correct: 1,
+                explanation: {
+                    step1: "Dịch câu: Avatar có lẽ là bộ phim dở nhất mà tớ từng xem!",
+                    step2: "Phân tích các dạng so sánh của tính từ bất quy tắc 'bad': bad -> worse -> worst.",
+                    step3: "Tại sao chọn B? Trong câu có mạo từ 'the' và mệnh đề 'I've ever seen' -> Cấu trúc So sánh nhất. Dạng so sánh nhất bất quy tắc của 'bad' là 'the worst'.",
+                    step4: "Tại sao A, C, D sai? Worse là so sánh hơn; badder và baddest không tồn tại trong tiếng Anh chuẩn."
+                }
+            },
+            {
+                section: "Ảnh 2 - Phần XI",
+                question: "2. A dancer must throw her heart and soul into every _____. (perform)",
+                options: ["A. performance", "B. performer", "C. performing", "D. performed"],
+                correct: 0,
+                explanation: {
+                    step1: "Dịch câu: Một vũ công phải dồn hết tâm huyết và tâm hồn vào mỗi màn biểu diễn.",
+                    step2: "Phân tích loại từ gốc 'perform':<br>• A. performance (n): Màn/tiết mục biểu diễn<br>• B. performer (n): Người biểu diễn<br>• C. performing (V-ing): Việc biểu diễn<br>• D. performed (v-ed): Đã biểu diễn",
+                    step3: "Tại sao chọn A? Đứng sau từ 'every' cần một danh từ số ít chỉ tiết mục 'performance'.",
+                    step4: "Tại sao B, C, D sai? Performer chỉ vũ công (lặp lại nghĩa vũ công dồn tâm huyết vào vũ công là sai)."
+                }
+            },
+            {
+                section: "Ảnh 2 - Phần XI",
+                question: "3. I think Men in Black 1 was as _____ as Men in Black 3. (excite)",
+                options: ["A. excited", "B. exciting", "C. excitement", "D. excite"],
+                correct: 1,
+                explanation: {
+                    step1: "Dịch câu: Tớ nghĩ phim Biệt Đội Áo Đen phần 1 cũng hay/hấp dẫn như phần 3.",
+                    step2: "Phân tích dạng tính từ gốc 'excite':<br>• A. excited (adj): Hào hứng (dùng cho cảm xúc con người)<br>• B. exciting (adj): Hấp dẫn/thú vị (dùng cho vật/bộ phim)<br>• C. excitement (n): Sự hào hứng",
+                    step3: "Tại sao chọn B? Đứng giữa cấu trúc so sánh bằng 'as ... as' cần một tính từ. Bộ phim 'Men in Black 1' là vật/tác phẩm nên dùng tính từ đuôi -ing 'exciting'.",
+                    step4: "Tại sao A, C, D sai? Excited chỉ cảm xúc người; Excitement là danh từ."
+                }
+            },
+            {
+                section: "Ảnh 2 - Phần XI",
+                question: "4. Although John and Andrew look exactly alike, they act quite _____. (different)",
+                options: ["A. different", "B. difference", "C. differently", "D. indifferent"],
+                correct: 2,
+                explanation: {
+                    step1: "Dịch câu: Mặc dù John và Andrew trông hoàn toàn giống nhau, họ lại hành xử khá khác biệt.",
+                    step2: "Phân tích loại từ của từ gốc 'different':<br>• A. different (adj): Khác biệt<br>• B. difference (n): Sự khác biệt<br>• C. differently (adv): Một cách khác biệt<br>• D. indifferent (adj): Thờ ơ",
+                    step3: "Tại sao chọn C? Động từ thường 'act' (hành xử) đứng trước cần một TRẠNG TỪ (adv) bổ nghĩa phía sau -> 'differently'.",
+                    step4: "Tại sao A, B, D sai? Tính từ different không bổ nghĩa trực tiếp cho động từ thường 'act'."
+                }
+            },
+            {
+                section: "Ảnh 2 - Phần XI",
+                question: "5. Dong Ho paintings are made with _____ colors. (nature)",
+                options: ["A. natural", "B. naturally", "C. nature", "D. naturalist"],
+                correct: 0,
+                explanation: {
+                    step1: "Dịch câu: Tranh Đông Hồ được làm bằng các màu sắc tự nhiên.",
+                    step2: "Phân tích biến thể của danh từ 'nature':<br>• A. natural (adj): Thuộc về tự nhiên<br>• B. naturally (adv): Một cách tự nhiên<br>• C. nature (n): Thiên nhiên<br>• D. naturalist (n): Nhà tự nhiên học",
+                    step3: "Tại sao chọn A? Đứng trước danh từ 'colors' cần một TÍNH TỪ bổ nghĩa -> 'natural colors'.",
+                    step4: "Tại sao B, C, D sai? Trạng từ hay danh từ không bổ nghĩa trực tiếp cho danh từ 'colors'."
+                }
+            },
+            {
+                section: "Ảnh 2 - Phần XI",
+                question: "6. His friends are all _____ - they're painters, musicians, and writers. (art)",
+                options: ["A. artists", "B. artistic", "C. artistically", "D. arts"],
+                correct: 0,
+                explanation: {
+                    step1: "Dịch câu: Bạn bè của anh ấy đều là nghệ sĩ - họ là họa sĩ, nhạc sĩ và nhà văn.",
+                    step2: "Phân tích các dạng từ gốc 'art':<br>• A. artists (n số nhiều): Các nghệ sĩ<br>• B. artistic (adj): Có tính nghệ thuật<br>• C. artistically (adv): Về mặt nghệ thuật",
+                    step3: "Tại sao chọn A? Đứng sau động từ To Be 'are' và lượng từ 'all' cần một danh từ số nhiều chỉ người 'artists'.",
+                    step4: "Tại sao B, C, D sai? Vế sau liệt kê các nghề nghiệp chỉ người (painters, musicians...) nên cần danh từ chỉ người số nhiều."
+                }
+            },
+            {
+                section: "Ảnh 2 - Phần XI",
+                question: "7. He later became a famous jazz _____ playing saxophone. (music)",
+                options: ["A. musician", "B. musical", "C. musically", "D. musicianship"],
+                correct: 0,
+                explanation: {
+                    step1: "Dịch câu: Sau đó ông ấy trở thành một nhạc sĩ nhạc Jazz nổi tiếng chơi kèn saxophone.",
+                    step2: "Phân tích từ gốc 'music':<br>• A. musician (n): Nhạc sĩ / Nhạc công<br>• B. musical (adj): Thuộc về âm nhạc<br>• C. musically (adv): Về mặt âm nhạc",
+                    step3: "Tại sao chọn A? Cụm 'a famous jazz musician' (một nhạc sĩ/nhạc công jazz nổi tiếng). Đứng sau tính từ 'famous' cần danh từ chỉ người 'musician'.",
+                    step4: "Tại sao B, C, D sai? Musical là tính từ; Musically là trạng từ."
+                }
+            },
+            {
+                section: "Ảnh 2 - Phần XI",
+                question: "8. Rossie has a large _____ of dolls. (collect)",
+                options: ["A. collection", "B. collector", "C. collective", "D. collecting"],
+                correct: 0,
+                explanation: {
+                    step1: "Dịch câu: Rossie có một bộ sưu tập búp bê rất lớn.",
+                    step2: "Phân tích các dạng của động từ 'collect':<br>• A. collection (n): Bộ sưu tập<br>• B. collector (n): Người sưu tầm<br>• C. collective (adj): Tập thể",
+                    step3: "Tại sao chọn A? Cụm từ cố định 'a collection of + N' (một bộ sưu tập cái gì). Đứng sau mạo từ 'a' và tính từ 'large' cần danh từ đồ vật 'collection'.",
+                    step4: "Tại sao B, C, D sai? Collector chỉ người sưu tầm (Rossie không có một người sưu tầm búp bê)."
+                }
+            },
+            {
+                section: "Ảnh 2 - Phần XI",
+                question: "9. A _____ is someone who enjoys watching birds. (birdwatch)",
+                options: ["A. birdwatching", "B. birdwatcher", "C. birdwatched", "D. birdwatches"],
+                correct: 1,
+                explanation: {
+                    step1: "Dịch câu: Người ngắm chim là người thích quan sát các loài chim.",
+                    step2: "Phân tích loại từ gốc 'birdwatch':<br>• A. birdwatching (n/V-ing): Hoạt động ngắm chim<br>• B. birdwatcher (n): Người ngắm chim<br>• C. birdwatched: Động từ quá khứ",
+                    step3: "Tại sao chọn B? Chủ ngữ đứng trước mệnh đề 'is someone who...' (là người mà...) bắt buộc phải là một danh từ chỉ người 'birdwatcher' (người quan sát chim).",
+                    step4: "Tại sao A, C, D sai? Birdwatching là tên hoạt động, không phải chỉ người."
+                }
+            },
+            {
+                section: "Ảnh 2 - Phần XI",
+                question: "10. My sister's hobby is _____. She took a lot of nice photos. (photo)",
+                options: ["A. photographer", "B. photograph", "C. photography", "D. photographic"],
+                correct: 2,
+                explanation: {
+                    step1: "Dịch câu: Sở thích của chị gái tớ là nhiếp ảnh / việc chụp ảnh. Chị ấy đã chụp rất nhiều bức ảnh đẹp.",
+                    step2: "Phân tích các từ liên quan gốc 'photo':<br>• A. photographer (n): Thợ chụp ảnh / Nhiếp ảnh gia<br>• B. photograph (n): Bức ảnh<br>• C. photography (n): Nghệ thuật nhiếp ảnh / Việc chụp ảnh",
+                    step3: "Tại sao chọn C? Tên lĩnh vực/sở thích chụp ảnh trong tiếng Anh là 'photography'.",
+                    step4: "Tại sao A, B, D sai? Hobby (sở thích) không thể là photographer (thợ chụp ảnh)."
+                }
+            },
+
+            // IMAGE 2 - SECTION XII: FIND MISTAKE AND CORRECT IT (FIXED UNDERLINES & OPTIONS)
+            {
+                section: "Ảnh 2 - Phần XII",
+                question: "1. Find the mistake: 'There <u>are</u> <u>any</u> oranges on the table <u>in</u> the kitchen, so I <u>need</u> to go to the supermarket.'",
+                options: ["A. are", "B. any", "C. in", "D. need"],
+                correct: 0,
+                explanation: {
+                    step1: "Dịch câu gốc: Không có quả cam nào trên bàn trong bếp, vì vậy tớ cần đi siêu thị.",
+                    step2: "Phân tích vế sau 'so I need to go to the supermarket' (vì thế tôi cần đi siêu thị mua) -> Chứng tỏ trong bếp KHÔNG còn quả cam nào.",
+                    step3: "Tại sao chọn A? Trong câu có từ 'any' dùng cho câu phủ định và ngữ cảnh hết cam -> Sửa động từ <b>are</b> thành <b>aren't</b> (There aren't any oranges...).",
+                    step4: "Tại sao B, C, D đúng? 'any' đứng trong câu phủ định là đúng ngữ pháp."
+                }
+            },
+            {
+                section: "Ảnh 2 - Phần XII",
+                question: "2. Find the mistake: 'How <u>much</u> <u>is</u> one <u>kilo</u> of rice <u>cost</u>?'",
+                options: ["A. much", "B. is", "C. kilo", "D. cost"],
+                correct: 1,
+                explanation: {
+                    step1: "Dịch câu: Một cân gạo có giá bao nhiêu tiền?",
+                    step2: "Phân tích 2 cấu trúc hỏi giá tiền:<br>1. How much + is/are + N?<br>2. How much + do/does + N + cost?",
+                    step3: "Tại sao chọn B? Ở cuối câu đã có động từ thường 'cost' nên trợ động từ đi với chủ ngữ số ít 'one kilo' phải là 'does', không được dùng To Be 'is'. Sửa <b>is</b> thành <b>does</b>.",
+                    step4: "Tại sao A, C, D đúng? 'How much' dùng hỏi giá tiền; 'kilo' và 'cost' đúng ngữ pháp."
+                }
+            },
+            {
+                section: "Ảnh 2 - Phần XII",
+                question: "3. Find the mistake: 'There <u>are</u> <u>apples</u> but there <u>isn't</u> <u>any</u> bananas.'",
+                options: ["A. are", "B. apples", "C. isn't", "D. any"],
+                correct: 2,
+                explanation: {
+                    step1: "Dịch câu: Có một vài quả táo nhưng không có quả chuối nào cả.",
+                    step2: "Phân tích danh từ vế sau 'bananas':<br>• 'bananas' là danh từ đếm được số nhiều (có đuôi 's').",
+                    step3: "Tại sao chọn C? Động từ To Be đi với danh từ số nhiều trong câu phủ định 'bananas' phải là 'aren't'. Sửa <b>isn't</b> thành <b>aren't</b>.",
+                    step4: "Tại sao A, B, D đúng? 'There are some apples' dùng với 'are' là chuẩn ngữ pháp."
+                }
+            },
+            {
+                section: "Ảnh 2 - Phần XII",
+                question: "4. Find the mistake: 'The author <u>of</u> this play <u>is</u> the same <u>like</u> <u>that play</u>.'",
+                options: ["A. of", "B. is", "C. the same", "D. like"],
+                correct: 3,
+                explanation: {
+                    step1: "Dịch câu: Tác giả của vở kịch này giống với tác giả của vở kịch kia.",
+                    step2: "Phân tích cấu trúc so sánh giống nhau:<br>• the same + N + as + N (giống như...).",
+                    step3: "Tại sao chọn D? Đi sau cụm 'the same' bắt buộc dùng giới từ 'as', không dùng 'like'. Sửa <b>like</b> thành <b>as</b>.",
+                    step4: "Tại sao A, B, C đúng? 'author of' và 'the same' chia đúng cấu trúc ngữ pháp."
+                }
+            },
+            {
+                section: "Ảnh 2 - Phần XII",
+                question: "5. Find the mistake: 'My husband <u>likes</u> <u>mangoes</u>, and my brother <u>is</u>, <u>too</u>.'",
+                options: ["A. likes", "B. mangoes", "C. is", "D. too"],
+                correct: 2,
+                explanation: {
+                    step1: "Dịch câu: Chồng tớ thích xoài, và anh trai tớ cũng vậy.",
+                    step2: "Phân tích cấu trúc đồng tình với động từ thường 'likes':<br>• Vế trước dùng động từ thường 'likes' (thì Hiện tại đơn) -> Vế đồng tình 'too' phải dùng trợ động từ 'does'.",
+                    step3: "Tại sao chọn C? Sửa To Be <b>is</b> thành trợ động từ <b>does</b> để tương thích với động từ 'likes'.",
+                    step4: "Tại sao A, B, D đúng? Likes mangoes và 'too' ở cuối câu hoàn toàn chính xác."
+                }
+            },
+            {
+                section: "Ảnh 2 - Phần XII",
+                question: "6. Find the mistake: 'She should watch <u>more</u> <u>television</u> <u>because</u> it will <u>harm</u> your eyes.'",
+                options: ["A. more", "B. television", "C. because", "D. harm"],
+                correct: 0,
+                explanation: {
+                    step1: "Dịch câu gốc: Cô ấy nên xem nhiều tivi hơn vì nó sẽ gây hại cho mắt.",
+                    step2: "Phân tích vế sau 'because it will harm eyes' (vì nó làm hại mắt) -> Lời khuyên hợp lý phải là xem ít đi.",
+                    step3: "Tại sao chọn A? Mâu thuẫn về mặt ý nghĩa logic. Sửa <b>more</b> thành <b>less</b> (hoặc shouldn't watch).",
+                    step4: "Tại sao B, C, D đúng? Cấu trúc ngữ pháp 'will + V-bare' (will harm) là đúng."
+                }
+            },
+            {
+                section: "Ảnh 2 - Phần XII",
+                question: "7. Find the mistake: '<u>Her</u> hobbies <u>are</u> different <u>to</u> <u>mine</u>.'",
+                options: ["A. Her", "B. are", "C. to", "D. mine"],
+                correct: 2,
+                explanation: {
+                    step1: "Dịch câu: Sở thích của cô ấy khác với của tớ.",
+                    step2: "Phân tích cấu trúc tính từ 'different':<br>• be different from + N (khác với cái gì).",
+                    step3: "Tại sao chọn C? Cấu trúc chuẩn trong tiếng Anh diễn tả sự khác biệt bắt buộc dùng giới từ 'from'. Sửa <b>to</b> thành <b>from</b>.",
+                    step4: "Tại sao A, B, D đúng? 'Her hobbies' số nhiều đi với 'are'; 'mine' là đại từ sở hữu đúng ngữ pháp."
+                }
+            },
+            {
+                section: "Ảnh 2 - Phần XII",
+                question: "8. Find the mistake: 'They <u>builded</u> this <u>bridge</u> 2 years <u>ago</u>. It <u>is</u> still very nice.'",
+                options: ["A. builded", "B. bridge", "C. ago", "D. is"],
+                correct: 0,
+                explanation: {
+                    step1: "Dịch câu: Họ đã xây cây cầu này cách đây 2 năm. Nó vẫn còn rất đẹp.",
+                    step2: "Phân tích động từ bất quy tắc 'build' (xây dựng): build -> built -> built.",
+                    step3: "Tại sao chọn A? Động từ 'build' là động từ bất quy tắc trong quá khứ, không thêm '-ed' thành 'builded'. Sửa <b>builded</b> thành <b>built</b>.",
+                    step4: "Tại sao B, C, D đúng? '2 years ago' chỉ mốc quá khứ đúng ngữ pháp; 'is still' vế sau tả hiện trạng."
+                }
+            }
+        ];
+
+        // Global State variables
+        let userAnswers = new Array(quizData.length).fill(null);
+
+        // Web Audio API Sound Generators
+        function playCorrectSound() {
+            try {
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(523.25, ctx.currentTime); // C5
+                osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.25); // A5
+                gain.gain.setValueAtTime(0.2, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.3);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.3);
+            } catch(e){}
+        }
+
+        function playWrongSound() {
+            try {
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(220, ctx.currentTime); // A3
+                osc.frequency.linearRampToValueAtTime(130, ctx.currentTime + 0.3); // C3
+                gain.gain.setValueAtTime(0.2, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.3);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.3);
+            } catch(e){}
+        }
+
+        // Pure JS Confetti Effect
+        function triggerConfetti() {
+            const canvas = document.getElementById('confetti-canvas');
+            if(!canvas) return;
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            const particles = [];
+            const colors = ['#00D26A', '#FF4757', '#FDCB6E', '#8854C0', '#00C9A7', '#E84393'];
+            
+            for(let i=0; i<90; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height - canvas.height,
+                    size: Math.random() * 8 + 4,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    vx: (Math.random() - 0.5) * 4,
+                    vy: Math.random() * 4 + 3,
+                    rot: Math.random() * 360,
+                    rotSpeed: (Math.random() - 0.5) * 8
+                });
+            }
+
+            let frame = 0;
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => {
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    p.rot += p.rotSpeed;
+                    ctx.save();
+                    ctx.translate(p.x, p.y);
+                    ctx.rotate(p.rot * Math.PI / 180);
+                    ctx.fillStyle = p.color;
+                    ctx.fillRect(-p.size/2, -p.size/2, p.size, p.size);
+                    ctx.restore();
+                });
+                frame++;
+                if(frame < 100) {
+                    requestAnimationFrame(animate);
+                } else {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                }
+            }
+            animate();
+        }
+
+        // Shuffle Array Function
+        function shuffleOptions(array) {
+            let arr = array.map((opt, idx) => ({ text: opt, originalIndex: idx }));
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        // Render Questions
+        function renderQuiz() {
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = '';
+
+            quizData.forEach((q, qIdx) => {
+                const shuffled = shuffleOptions(q.options);
+                q.shuffledOptions = shuffled;
+
+                const card = document.createElement('div');
+                card.className = 'question-card';
+                card.id = `q-card-${qIdx}`;
+
+                let optionsHTML = '';
+                shuffled.forEach((opt, optIdx) => {
+                    optionsHTML += `
+                        <button class="option-btn" 
+                                id="opt-${qIdx}-${optIdx}" 
+                                onclick="selectOption(${qIdx}, ${optIdx}, ${opt.originalIndex})">
+                            ${opt.text}
+                        </button>
+                    `;
+                });
+
+                card.innerHTML = `
+                    <div>
+                        <span class="section-tag">${q.section}</span>
+                        <span class="question-number">Câu ${qIdx + 1} / ${quizData.length}</span>
+                    </div>
+                    <div class="question-text">${q.question}</div>
+                    <div class="options-grid" id="opts-grid-${qIdx}">
+                        ${optionsHTML}
+                    </div>
+                    <div class="explanation-box" id="exp-${qIdx}">
+                        <div class="exp-title">💡 GIẢI THÍCH CHI TIẾT TỪ MS LÊ HẰNG:</div>
+                        <div class="exp-step"><span class="exp-step-title">Bước 1 (Dịch câu):</span> ${q.explanation.step1}</div>
+                        <div class="exp-step"><span class="exp-step-title">Bước 2 (Từ vựng/Đáp án):</span><br>${q.explanation.step2}</div>
+                        <div class="exp-step"><span class="exp-step-title">Bước 3 (Tại sao ĐÚNG):</span> ${q.explanation.step3}</div>
+                        <div class="exp-step"><span class="exp-step-title">Bước 4 (Tại sao SAI):</span> ${q.explanation.step4}</div>
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+        }
+
+        // Handle User Answer Selection
+        function selectOption(qIdx, shuffledIdx, originalIdx) {
+            if(userAnswers[qIdx] !== null) return; // Prevent changing answer
+
+            const q = quizData[qIdx];
+            userAnswers[qIdx] = (originalIdx === q.correct);
+
+            const grid = document.getElementById(`opts-grid-${qIdx}`);
+            const buttons = grid.querySelectorAll('.option-btn');
+            
+            // Disable all buttons in this card
+            buttons.forEach(btn => btn.disabled = true);
+
+            const selectedBtn = document.getElementById(`opt-${qIdx}-${shuffledIdx}`);
+
+            if(originalIdx === q.correct) {
+                selectedBtn.classList.add('correct');
+                playCorrectSound();
+                triggerConfetti();
+            } else {
+                selectedBtn.classList.add('wrong');
+                playWrongSound();
+                
+                // Highlight correct answer in green
+                q.shuffledOptions.forEach((opt, idx) => {
+                    if(opt.originalIndex === q.correct) {
+                        document.getElementById(`opt-${qIdx}-${idx}`).classList.add('correct');
+                    }
+                });
+            }
+
+            // Show explanation immediately
+            const expBox = document.getElementById(`exp-${qIdx}`);
+            expBox.style.display = 'block';
+        }
+
+        // Submit Quiz & Show Result Modal
+        function submitQuiz() {
+            let correctCount = 0;
+            userAnswers.forEach(ans => {
+                if(ans === true) correctCount++;
+            });
+
+            const total = quizData.length;
+            const percentage = Math.round((correctCount / total) * 100);
+
+            document.getElementById('modal-score').innerText = `${correctCount}/${total}`;
+
+            let feedback = '';
+            if(percentage < 50) {
+                feedback = '“Điểm lần này chưa cao lắm, con cố gắng đọc kỹ giải thích đáp án và làm lại nha. Cô tin con sẽ làm tốt hơn ở lần sau!”';
+            } else if(percentage <= 80) {
+                feedback = '“Con đã có tiến bộ khá ổn rồi, con cố gắng đọc kỹ giải thích đáp án và làm lại nha. Cô tin con sẽ làm tốt hơn ở lần sau!”';
+            } else {
+                feedback = '“Làm tốt lắm, con cố gắng rinh điểm 10 ở lần sau nha!”';
+                triggerConfetti();
+            }
+
+            document.getElementById('modal-msg').innerText = feedback;
+            document.getElementById('result-modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('result-modal').style.display = 'none';
+        }
+
+        // Initialize Quiz on load
+        window.onload = renderQuiz;
+    </script>
+</body>
+</html>
